@@ -1,5 +1,8 @@
 class Person
-    def falar
+    def speak
         "Olá, pessoal!"
     end
 end
+
+p = Person.new
+puts p.speak
