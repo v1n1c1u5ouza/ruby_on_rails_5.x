@@ -1,4 +1,4 @@
-class Pessoa
+class Person
     def falar
         "Olá, pessoal!"
     end
