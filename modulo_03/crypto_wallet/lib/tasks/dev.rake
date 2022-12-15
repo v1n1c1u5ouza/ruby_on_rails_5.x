@@ -5,8 +5,8 @@ namespace :dev do
     show_spinner("Apagando db...") {%x(rails db:drop)}
     show_spinner("Criando db...") {%x(rails db:create)}
     show_spinner("Migrando db...") {%x(rails db:migrate)} 
-    %x(rails dev:add_coins)
     %x(rails dev:add_mining_types)
+    %x(rails dev:add_coins)
   else
     puts "Vocẽ não está em ambiente de desenvolvimento"
   end
@@ -19,27 +19,32 @@ namespace :dev do
                   {
                       description: "Bitcoins",
                       acronym: "BTC",
-                      url_image: "https://pngimg.com/uploads/bitcoin/small/bitcoin_PNG47.png"
+                      url_image: "https://pngimg.com/uploads/bitcoin/small/bitcoin_PNG47.png",
+                      mining_type: MiningType.find_by(acronym: "PoW")
                   },
                   {
                       description: "Ethereum",
                       acronym: "ETC",
-                      url_image: "https://cryptologos.cc/logos/ethereum-eth-logo.png"
+                      url_image: "https://cryptologos.cc/logos/ethereum-eth-logo.png",
+                      mining_type: MiningType.all.sample
                   },
                   {    
                       description: "Dash",
                       acronym: "DASH",
-                      url_image: "https://s2.coinmarketcap.com/static/img/coins/200x200/131.png"
+                      url_image: "https://s2.coinmarketcap.com/static/img/coins/200x200/131.png",
+                      mining_type: MiningType.all.sample
                   },
                   { 
                     description: "Iota",
                     acronym: "IOT",
                     url_image: "https://s2.coinmarketcap.com/static/img/coins/200x200/1720.png",
+                    mining_type: MiningType.all.sample
                   },
                   { 
                     description: "ZCash",
                     acronym: "ZEC",
                     url_image: "https://www.cryptocompare.com/media/351360/zec.png",
+                    mining_type: MiningType.all.sample
                   }
                 ]
       coins.each do |coin|
