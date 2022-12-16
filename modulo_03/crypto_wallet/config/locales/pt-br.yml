@@ -1,0 +1,10 @@
+"pt-BR":
+  hello: "Olá mundo!"
+  activerecord:
+    models:
+      coin:
+        one: Moeda
+        other: Moedas
+      attributes:
+        coin:
+          description: "Descrição"
